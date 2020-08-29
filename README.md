@@ -84,10 +84,12 @@ Step 2: come into the workspace and compile the package.
 
 Step 3: Run the launch file.
 -> roslaunch vision_module vision_module.launch
+At the terminal, the corresponding 3D information is printed.
 
 Step 4: rqt_graph window will be opened.
 Refresh it and you can get the structure of Nodes and Topics.
 
-Note: You may need to change 'catkin_ws' if your workspace is named something other than catkin_ws.
+Note: You may need to change 'catkin_ws' if your workspace is named something other than catkin_ws. 
+      The test.pcd file is processed by each node and the result is saved in the data file.
 ```
 
