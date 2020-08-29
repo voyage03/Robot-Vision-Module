@@ -75,20 +75,19 @@ When you import the project successfully, you need to set the main file as the v
 
 ## Usage
 ```
-1. Open and set up the connection of elasticsearch and kibana with your computer.
-2. Run SearchingEngineIn.py and and just run it once. This converts the csv to json file with different indices and uploads them onto Elasticsearch.
-3. Run user_search.py and user can choose two ways to search:
-   * Standard searching:
-     * Type the query.
-     * The Engine will get the doc.
-   * Advanced searching:
-     * choose models the user want to use
-     * Select fields 
-     * Choose the weights of different fields
-     * Type the query
-     * Choose the way of combination
-     * The Engine will get the doc.
+Step 1: configure the operating environment on your computer.
 
-Note: It is better to ensure queries are more than one word.
+Step 2: come into the workspace and compile the package.
+-> cd ~/catkin_ws
+-> catkin_make
+-> source ~/catkin_ws/devel/setup.bash
+
+Step 3: Run the launch file.
+-> roslaunch vision_module vision_module.launch
+
+Step 4: rqt_graph window will be opened.
+Refresh it and you can get the structure of Nodes and Topics.
+
+Note: You may need to change 'catkin_ws' if your workspace is named something other than catkin_ws.
 ```
 
