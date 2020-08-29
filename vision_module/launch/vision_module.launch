@@ -1,0 +1,9 @@
+<launch>
+
+    <node pkg="vision_module" name="simulation_pub" type="simulation_pub" output="screen"/>
+    <node pkg="vision_module" name="pose_information" type="pose_information" output="screen"/>
+    <node pkg="vision_module" name="region_growing" type="region_growing" output="screen"/>
+    <node pkg="vision_module" name="removal_outlier" type="removal_outlier" output="screen"/> 
+    <node pkg="rqt_graph" name="rqt_graph" type="rqt_graph"/>  
+
+</launch>
