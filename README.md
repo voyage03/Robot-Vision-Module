@@ -1,53 +1,75 @@
-# Model Fusion Engine
+# Robot Vision Module
 
 ## Functional description
 
 
-This is a search engine for movies and TV series hosted by Netflix. 
+In this project, a vision module is built. It is used to detect and obtain 3D information of unknown objects on the desktop. It is developed based on the ROS platform, which uses the PCL library and the Eigen3 library to process the three-dimensional point cloud data obtained by the RGB-D sensor. This is a package of work space based on ROS.
 
-Users enter the query they want to search through the interactive interface (which can be the name, actors, directors and related content of the description) in order to query the database. 
+Firstly, an improved area growth algorithm based on surface smoothness conditions is used to create the surface. The improved region growing algorithm uses dual thresholds and introduces the concept of edge points to segment point clouds. It solves the problem of false boundaries caused by sensor noise. Then filter the segmented point cloud to remove the desktop and background. Use principal component analysis to process the point cloud that contains only the object, calculate the feature value and feature vector of the object point cloud, and then further obtain the bounding box, center of mass, transformation matrix, and BBox size of the object as the 3D information of the object.
 
-The system will use multiple models to search the database and the results are integrated to give the best results. It provides users with two main search methods. The first one is the relatively rapid introduction of search, while the second is more advanced and users can go to search based on user requirements.
-
+It is simple and can be implemented in real time. In the absence of a 3D model of the object, it can extract the 3D information of the object very well. This information will provide powerful support for the robot's grasping.
 
 
 ## Development environment
 
 ```
-Python: 3.7
-Elasticsearch: 7.6
-Kibana: 7.62
+C++: 11.0
+ROS: Melodic
+PCL: 1.72
+Eigen3
 
 packages:
- elasticsearch
- elasticsearch_dsl
- numpy
- matplotlib.pyplot
- datetime
- csv
- requests
+  moveit_msgs
+  pcl_conversions
+  pcl_msgs
+  pcl_ros
+  roscpp
+  rospy
+  sensor_msgs
+  std_msgs
+  message_generation
 ```
-## Project structure
+## Package structure
 
 
 ```
------Root
+-----vision_module
   |
-  |----- netflix_titles.csv
-  |
-  |----- Index.py
-  |
-  |----- user_search.py
+  |----- include
   |  |
-  |  |----- Standard_function.py
+  |  |----- vision_module
+  |
+  |----- launch
   |  |
-  |  |----- Advanced_function.py
+  |  |----- vision_module.launch
   |
-  |----- Evaluation.py
+  |----- msg
+  |  |
+  |  |----- bbox_size.msg
+  |  |
+  |  |----- obj_mass.msg
+  |  |
+  |  |----- rotation_matrix.msg
   |
-  |----- Standard_Function_Evaluation.py
+  |----- src
+  |  |
+  |  |----- data
+  |  |  |
+  |  |  |----- test.pcd
+  |  |
+  |  |----- simulation_pub.cpp
+  |  |
+  |  |----- removal_outlier.cpp
+  |  |
+  |  |----- region_growing.cpp
+  |  |
+  |  |----- pose_information.cpp
+  |
+  |----- CMakeLists.txt
+  |
+  |----- package.xml
   
-When you import the project successfully, you need to set the main file as the sources root file.
+When you import the project successfully, you need to set the main file as the vision_module file.
 ```
 
 ## Usage
