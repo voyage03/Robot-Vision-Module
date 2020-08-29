@@ -13,6 +13,7 @@ It is simple and can be implemented in real time. In the absence of a 3D model o
 ## Development environment
 
 ```
+Ubuntu: 18.04
 C++: 11.0
 ROS: Melodic
 PCL: 1.72
