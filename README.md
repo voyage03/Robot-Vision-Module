@@ -5,7 +5,6 @@
 
 In this project, a vision module is built. It is used to detect and obtain 3D information of unknown objects on the desktop. It is developed based on the ROS platform, which uses the PCL library and the Eigen3 library to process the three-dimensional point cloud data obtained by the RGB-D sensor. This is a package of work space based on ROS.
 
-Firstly, an improved area growth algorithm based on surface smoothness conditions is used to create the surface. The improved region growing algorithm uses dual thresholds and introduces the concept of edge points to segment point clouds. It solves the problem of false boundaries caused by sensor noise. Then filter the segmented point cloud to remove the desktop and background. Use principal component analysis to process the point cloud that contains only the object, calculate the feature value and feature vector of the object point cloud, and then further obtain the bounding box, center of mass, transformation matrix, and BBox size of the object as the 3D information of the object.
 
 It is simple and can be implemented in real time. In the absence of a 3D model of the object, it can extract the 3D information of the object very well. This information will provide powerful support for the robot's grasping.
 
